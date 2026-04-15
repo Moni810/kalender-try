@@ -1,12 +1,35 @@
 //informationen sammeln
-let aktuellerTag = new Date();
-let monat = aktuellerTag.getMonth();
-let jahr = aktuellerTag.getFullYear();
-let wochenTag = aktuellerTag.getDay();
-const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]; 
+let heute = new Date();
+let monat = heute.getMonth();
+let jahr = heute.getFullYear();
+let wochenTag = heute.getDay();
+let displayedDay = heute.getDate();
+let displayedMonth = heute.getMonth();
+const monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+let monatString = monate[displayedMonth];
+let aktuellesDatum = `${displayedDay}.${monat +1}.${jahr}`;
+//let startTag =
+//let endTag = 
 
-//TODO Datum nach innterText dynamisch machen
-document.getElementById("überschrift").innerText = "14.04.2026";
-console.log(überschrift)
-//TODO Monat auf einen monat ausgeschrieben beziehen. ist derzeit 3
-document.getElementById("überschrift2").innerText = (monat)
+//überschriften
+document.getElementById("überschrift").innerText = aktuellesDatum;
+document.getElementById("überschrift2").innerText = monatString;
+
+let startWochentag = new Date (jahr, monat, 1).getDay();
+let letzterWochentag = new Date (jahr, monat +1, 0).getDay();
+
+
+function drawCalendar (){
+    let aktuellerTag = heute.getDate();
+    let aktuellerMonat = heute.getMonth();
+    let aktuellesJahr = heute.getFullYear();
+    let startWochentag = new Date (jahr, monat, 1).getDay();
+    let letzterWochentag = new Date (jahr, monat +1, 0).getDay();
+    
+    let tageVorherBeginnen = startWochentag == 0 ? 6 : startWochentag -1;
+    let startTag = new Date(jahr, monat, 1- tageVorherBeginnen);
+    console.log(startTag);
+    let tageNachEnde = letzterWochentag == 0 ? 0 : 7 - letzterWochentag;
+    console.log(letzterWochentag);
+}
+drawCalendar();

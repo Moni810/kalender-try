@@ -3,5 +3,15 @@ body {
 }
 
 #überschrift {
-    color: white;
+    background-color:rgb(173, 132, 132);
+    color: rgb(138, 69, 81);
+}
+
+#überschrift2 {
+    color: rgb(138, 69, 81);
+    background-color: rgba(124, 69, 77, 0.39);
+}
+
+#kalenderblatt {
+    background-color: rgb(124, 95, 95);
 }
